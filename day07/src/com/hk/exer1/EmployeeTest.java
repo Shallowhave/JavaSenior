@@ -1,5 +1,6 @@
 package com.hk.exer1;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -18,7 +19,15 @@ public class EmployeeTest {
         Employee e4 = new Employee("jeck",26,new Mydate(1991,3,18));
         Employee e5 = new Employee("张无忌",33,new Mydate(1880,7,24));
 
-        TreeSet treeSet = new TreeSet();
+        TreeSet treeSet = new TreeSet(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if (o1 instanceof Employee&& o2 instanceof Employee){
+
+                }
+                return 0;
+            }
+        });
         treeSet.add(e1);
         treeSet.add(e2);
         treeSet.add(e3);
