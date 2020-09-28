@@ -19,15 +19,29 @@ public class EmployeeTest {
         Employee e4 = new Employee("jeck",26,new Mydate(1991,3,18));
         Employee e5 = new Employee("张无忌",33,new Mydate(1880,7,24));
 
+
         TreeSet treeSet = new TreeSet(new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                if (o1 instanceof Employee&& o2 instanceof Employee){
-
+                if (o1 instanceof Employee && o2 instanceof Employee){
+                    Employee o11 = (Employee) o1;
+                    Employee o21 = (Employee) o2;
+                    Mydate b1 = o11.getBirthday();
+                    Mydate b2 = o21.getBirthday();
+                    int i = b1.getYear() - b2.getYear();
+                    if (i!=0){
+                        return i;
+                    }
+                    int i1 = b1.getMonth() - b2.getMonth();
+                    if (i1!= 0){
+                        return i1;
+                    }
+                    return b1.getDay()-b2.getDay();
                 }
-                return 0;
+                throw new RuntimeException("传入的数据类型不匹配");
             }
         });
+
         treeSet.add(e1);
         treeSet.add(e2);
         treeSet.add(e3);

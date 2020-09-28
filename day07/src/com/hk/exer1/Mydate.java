@@ -45,4 +45,9 @@ public class Mydate {
     public void setDay(int day) {
         this.day = day;
     }
+
+    @Override
+    public String toString() {
+        return year+"年" +month+"月" + day+"日";
+    }
 }
